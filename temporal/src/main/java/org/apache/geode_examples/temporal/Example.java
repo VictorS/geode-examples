@@ -40,16 +40,23 @@ public class Example {
         cache.<Integer, WeatherData>createClientRegionFactory(ClientRegionShortcut.PROXY)
             .create("example-region");
 
+    region.clear();
+
     Example example = new Example(region);
-    example.insertValues(12);
+    example.insertValues(12, "Toronto", "Canada", "2020-08-07", 1596802088000L);
+    example.insertValues(12, "Montreal", "Canada", "2020-08-07", 1596803288000L);
+    example.insertValues(12, "Toronto", "Canada", "2020-08-08", 1596888488000L);
+    example.insertValues(12, "Montreal", "Canada", "2020-08-08", 1596889688000L);
     example.printValues(example.getValues());
 
     cache.close();
   }
 
-  void insertValues(int upperLimit) {
-    IntStream.rangeClosed(1, upperLimit).forEach(i -> {
-      region.put(i, new WeatherData("Toronto", "Canada", "2020-08-08", 1596888488000L + i * 3600000,
+  void insertValues(int limit, String city, String country, String date, long starttime) {
+    int shift = region.sizeOnServer();
+    IntStream.rangeClosed(1, limit).forEach(i -> {
+      int k = shift + i;
+      region.put(k, new WeatherData(city, country, date, starttime + i * 3600000,
           30 - Math.abs(7 - i), 30 + i));
     });
   }

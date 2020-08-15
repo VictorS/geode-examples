@@ -70,6 +70,7 @@ tutorial.
 *  [Functions](functions/README.md)
 *  [Persistence](persistence/README.md)
 *  [OQL (Querying)](queries/README.md)
+*  [Temporal Queries)](temporal/README.md)
 
 ### Intermediate
 
