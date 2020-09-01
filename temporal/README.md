@@ -19,7 +19,7 @@ limitations under the License.
 
 This is a simple example that demonstrates queries for temporal data.
 See https://en.wikipedia.org/wiki/Temporal_database
-This is a uni-temporal example with timestamp as the valid time represented in UTC milliseconds also known as Java time. The example data has undeclared composite key consisting of City, Country and localdate. This composite key cannot be used as the Geode record key, because of the temporal axis.
+This is a uni-temporal example with timestamp as the valid time represented in UTC milliseconds also known as Java time. The example data has undeclared composite key consisting of city, country and localdate. This composite key cannot be used as the Geode record key, because of the temporal axis.
 
 This example assumes you have installed Java and Geode.
 
